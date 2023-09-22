@@ -1,0 +1,82 @@
+﻿@using HRMSystem.Shared.Models;
+@inject HttpClient Http
+@page "/employee/addemployee"
+@* @page "/employee/editemployee{EmployeeId:int}" *@
+@inject NavigationManager NavigationManager
+
+<h3>Enter Employee Details</h3>
+
+
+<EditForm Model="@employeeData" OnSubmit="SaveEmployee">
+	<div>
+		<label class="form-label" for="fistName">First Name</label>
+		<InputText class="form-control" @bind-Value=employeeData.FirstName/>
+	</div>
+	<div>
+		<label class="form-label" for="lastName">Last Name</label>
+		<InputText class="form-control" @bind-Value=employeeData.LastName />
+
+	</div>
+	<div>
+		<label class="form-label" for="gender">Gender</label>
+		<InputText class="form-control" @bind-Value=employeeData.Gender />
+
+	</div>
+	<div>
+		<label class="form-label" for="created">Created</label>
+		<InputDate class="form-control" @bind-Value=employeeData.Created />
+
+	</div>
+	<div>
+		<label class="form-label" for="departmentId">Department Id</label>
+		<InputNumber class="form-control" @bind-Value=employeeData.DepartmentId />
+	</div>
+
+	<div>
+		<button type="submit" >Add</button>
+	</div>
+	<div>
+		<a @onclick="Cancel">
+			Cancel
+		</a>
+	</div>
+</EditForm>
+
+@code {
+
+	[Parameter]
+	public int EmployeeId { get; set; }
+	protected Employee employeeData = new Employee();
+	// protected override async Task OnInitializedAsync()
+	// {
+	// 	await GetEmployeeList();
+	// }
+	// protected async Task GetEmployeeList()
+	// {
+	// 	employeeData = await Http.GetFromJsonAsync<List<Employee>>("api/employee");
+	// }
+
+	protected override async Task OnParametersSetAsync()
+	{
+		employeeData = await Http.GetFromJsonAsync<Employee>($"api/employee/{EmployeeId}");
+	}
+	protected async Task SaveEmployee()
+	{
+		await Http.PutAsJsonAsync("api/employee",employeeData);
+	}
+	public void Cancel()
+	{
+		NavigationManager.NavigateTo("employee/employeelist");
+	}
+
+	// protected Employee employee = new Employee();
+	// [Inject]
+	// private EmloyeeManager emloyeeManager { get; set; }
+
+	// private async Task CreateEmployee()
+	// {
+	// 	await EmployeeManager.AddEmployeeAsync(employee);
+		
+	// }
+
+}

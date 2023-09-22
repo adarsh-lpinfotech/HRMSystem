@@ -1,0 +1,68 @@
+﻿@page "/employee/employeelist"
+@using HRMSystem.Shared.Models;
+@inject HttpClient Http;
+
+<h2>Employees Data</h2>
+<div>
+    <a href="/employee/addemployee">
+        Add Employee
+    </a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Created</th>
+            <th>Department ID</th>
+            <th>Modify</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in employeeData)
+        {
+            <tr>
+
+                <td>@emp.ID</td>
+                <td>@emp.FirstName</td>
+                <td>@emp.LastName</td>
+                <td>@emp.Gender</td>
+                <td>@emp.Created</td>
+                <td>@emp.DepartmentId</td>
+                <td>
+                    <div>
+                        <a href="/employee/editemployee{@emp.ID}">Edit</a>
+                    </div>
+                    <div>
+                        <a href="/employee/deleteemployee{@emp.ID}">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
+
+
+
+@code {
+    protected List<Employee> employeeData = new();
+    protected Employee employee = new Employee();
+    protected List<Employee> searchEmployeeData = new();
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetEmployee();
+    }
+    protected async Task GetEmployee()
+    {
+        // employeeData = await Http.GetFromJsonAsync<List<employee>>("api/employee");
+        // searchEmployeeData = employeeData;
+    }
+
+
+}

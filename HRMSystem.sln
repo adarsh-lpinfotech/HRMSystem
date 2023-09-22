@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRMSystem.Server", "HRMSystem\Server\HRMSystem.Server.csproj", "{3F905D18-EE79-41B6-8986-16C795D2C6B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRMSystem.Server", "HRMSystem\Server\HRMSystem.Server.csproj", "{3F905D18-EE79-41B6-8986-16C795D2C6B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRMSystem.Client", "HRMSystem\Client\HRMSystem.Client.csproj", "{68DFAB01-5410-4B07-A78A-BC43B7ED7FD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRMSystem.Client", "HRMSystem\Client\HRMSystem.Client.csproj", "{68DFAB01-5410-4B07-A78A-BC43B7ED7FD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRMSystem.Shared", "HRMSystem\Shared\HRMSystem.Shared.csproj", "{1486DC03-AC6D-4C9B-B0EF-B5FB7D7DA1EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRMSystem.Shared", "HRMSystem\Shared\HRMSystem.Shared.csproj", "{1486DC03-AC6D-4C9B-B0EF-B5FB7D7DA1EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
